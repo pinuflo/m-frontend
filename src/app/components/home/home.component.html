@@ -1,0 +1,5 @@
+<p>
+    Bienvenidos a esta página horrible.
+    <span *ngIf="!_currentUser">Tu eres un invitado</span>
+    <span *ngIf="_currentUser"> {{_currentUser.name}}</span>
+</p>
