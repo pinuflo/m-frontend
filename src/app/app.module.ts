@@ -7,14 +7,17 @@ import { routing }        from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { UpperMenuComponent } from './components/upper-menu/upper-menu.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
+    UpperMenuComponent,
   ],
   imports: [
     BrowserModule,

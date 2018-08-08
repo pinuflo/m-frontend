@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { Config } from '../config/config';
 import { first } from 'rxjs/operators';
+import { Observable } from '../../../node_modules/rxjs';
+import { reject, resolve } from '../../../node_modules/@types/q';
 
 //Temporal hasta tener fichero configuración
 var _config:Config = { api_url: 'http://127.0.0.1:3000/api' };
@@ -16,7 +18,7 @@ export class UserService {
     getCurrentUserToken() : string
     {
         let currentUserInfo = JSON.parse(localStorage.getItem('currentUserAuth'));
-        if(currentUserInfo.auth == true)
+        if(currentUserInfo && currentUserInfo.auth == true)
         {
             return currentUserInfo.token;
         }
@@ -32,21 +34,68 @@ export class UserService {
         let userData:any = JSON.parse(localStorage.getItem('currentUser'));
         if(userData == null)
         {
-            this.http.get<User>(`${_config.api_url}/auth/me`).pipe(first()).subscribe
-            (
-                userResponse =>
-                    { 
-                        localStorage.setItem('currentUser', JSON.stringify(userResponse));
-                        return userResponse;
-                    },
-                error =>
-                {
-                    return null;
-                }
-            );
+
+            if(this.getCurrentUserToken())
+            {
+                this.http.get<User>(`${_config.api_url}/auth/me`).pipe(first()).subscribe
+                (
+                    userResponse =>
+                        { 
+                            localStorage.setItem('currentUser', JSON.stringify(userResponse));
+                            return userResponse;
+                        },
+                    error =>
+                    {
+                        return null;
+                    }
+                );
+            }
+            else
+            {
+                return null;
+            }
+
+
         }
 
         return userData;
+    }
+
+    getCurrentUserPromise() : Promise<User>
+    {
+        let userData:any = JSON.parse(localStorage.getItem('currentUser'));
+        let userPromise = new Promise<User>((resolve, reject) => 
+        { 
+            if(userData == null)
+            {
+                
+                if(this.getCurrentUserToken())
+                {
+                    this.http.get<User>(`${_config.api_url}/auth/me`).pipe(first()).subscribe
+                    (
+                        userResponse =>
+                            { 
+                                localStorage.setItem('currentUser', JSON.stringify(userResponse));
+                                resolve(userResponse);
+                            },
+                        error =>
+                        {
+                            reject(error);
+                        }
+                    );
+                }
+                else
+                {
+                    resolve(null);
+                }
+            }
+            else
+            {
+                resolve(userData);
+            }
+
+        });
+        return userPromise;
     }
 
     getAll()

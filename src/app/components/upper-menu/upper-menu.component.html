@@ -1,0 +1,13 @@
+<p>Navegación:</p> 
+
+<ul>
+    <li>
+         <a href="/" > HOME </a>
+    </li>
+    <li *ngIf="!this._currentUser">
+            <a routerLink="/login" > LOGIN </a>
+    </li>
+    <li *ngIf="this._currentUser">
+        <a (click)="logout()" > LOGOUT </a>
+    </li>
+</ul> 
