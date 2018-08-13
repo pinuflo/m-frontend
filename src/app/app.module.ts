@@ -8,8 +8,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { UpperMenuComponent } from './components/upper-menu/upper-menu.component';
+import { AccountComponent } from './components/account/account.component';
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     LoginComponent,
     HomeComponent,
     UpperMenuComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,

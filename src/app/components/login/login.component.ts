@@ -13,7 +13,6 @@ import { Title }     from '@angular/platform-browser';
 })
 export class LoginComponent implements OnInit {
 
-    _pageTitle = "Login";
     loginForm: FormGroup;
     loading = false;
     submitted = false;
@@ -25,13 +24,8 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,      
         private authenticationService: AuthenticationService,
-        private titleService: Title,
         private userService: UserService,
-        
-    )
-    {
-        this.titleService.setTitle( this._pageTitle );
-    }
+    ){}
 
     ngOnInit() 
     {

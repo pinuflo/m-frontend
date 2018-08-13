@@ -15,14 +15,9 @@ export class AppComponent implements OnInit
   constructor(
     private userService: UserService,
     private titleService: Title,
-    private router: Router 
+    private router: Router,
+    private route: ActivatedRoute, 
   ) {}
-
-  public setTitle( newTitle: string)
-  {
-    this.titleService.setTitle( newTitle );
-    this._title = this.titleService.getTitle();
-  }  
 
   ngOnInit() 
   {
@@ -31,7 +26,7 @@ export class AppComponent implements OnInit
         {
           if (event instanceof NavigationEnd)
           {
-              this._title = this.titleService.getTitle();
+              this._title = this.route.routeConfig.data[ 'title' ] ;
           }
         }
     );

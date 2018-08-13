@@ -11,18 +11,13 @@ import { Title }     from '@angular/platform-browser';
 export class HomeComponent implements OnInit {
 
   _currentUser:any;
-  _pageTitle = "Home";
 
   constructor(
       private userService: UserService,
-      private titleService: Title,
-  ) { 
-    this.titleService.setTitle( this._pageTitle );
-  }
+  ) {  }
 
   ngOnInit() 
   {
- 
     this._currentUser = this.userService.getCurrentUser();
   }
 

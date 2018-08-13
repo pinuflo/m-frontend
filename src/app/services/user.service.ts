@@ -102,4 +102,6 @@ export class UserService {
     {
         return this.http.get<User[]>(`${_config.api_url}/user`);
     }
+
+    
 }

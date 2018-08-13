@@ -20,6 +20,8 @@
                             <li><a  routerLink="/register">Registrarse</a></li>
                         </ul>
                         <ul class="login-register pull-left" *ngIf="this._currentUser">
+                                <li><a routerLink="/me" > Mi cuenta </a></li>
+                                <li></li>
                                 <li><a (click)="logout()" > Cerrar sesión </a></li>
                             </ul>
 
