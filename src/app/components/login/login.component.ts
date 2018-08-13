@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 import { UserService } from '../../services/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title }     from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+    _pageTitle = "Login";
     loginForm: FormGroup;
     loading = false;
     submitted = false;
@@ -23,8 +25,13 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,      
         private authenticationService: AuthenticationService,
-        private userService: UserService
-    ){}
+        private titleService: Title,
+        private userService: UserService,
+        
+    )
+    {
+        this.titleService.setTitle( this._pageTitle );
+    }
 
     ngOnInit() 
     {
