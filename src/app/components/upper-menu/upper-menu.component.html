@@ -38,7 +38,7 @@
                 <div class="col-lg-3 col-12">
                     <!-- site-logo -->
                     <div class="site-logo">
-                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="{{_title}}"></a>
+                        <a href="/">{{_pageTitle}}</a>
                     </div>
                 </div>
                 <div class="col-lg-7 col-12">
@@ -47,9 +47,9 @@
                         <div class="category-select pull-left">
                             <select class="nice-select-menu">
                                 <option data-display="Categories">Categories</option>
-                                <option value="1">Decor & Furniture</option>
-                                <option value="2">Electronics</option>
-                                <option value="3">Fashion & clothings</option>
+                                <option value="1">Instrumentos</option>
+                                <option value="2">Servicios</option>
+                                <option value="3">Otros</option>
                                 <option value="4" disabled>Sport & Outdoors</option>
                                 <option value="5">Toy, Kids & Baby</option>
                             </select>
@@ -134,8 +134,10 @@
                             <i class="fa fa-phone"></i>
                         </div>
                         <div class="hotline-number">
+                            <!--
                             <span><strong>(+800) 123 456 329</strong></span>
                             <span>Support Any Time</span>
+                            -->
                         </div>
                     </div>
                     </div>
@@ -145,7 +147,7 @@
     </div>
     <!-- Header middle area end -->
     <!-- Header bottom area start -->
-    <div id="sticky-header" class="header-bottom-area">
+    <div id="sticky-header" class="header-bottom-area" [ngClass]="{'header-bottom-area-develop':this._devMode}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9 col-12">
@@ -153,47 +155,11 @@
                     <div class="main-menu">
                         <nav>
                             <ul>
-                                <li><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
-                                    <ul class="submenu">
-                                        <li><a href="index.html">Home Shop 1</a></li>
-                                        <li><a href="index-2.html">Home Shop 2</a></li>
-                                        <li><a href="index-3.html">Home Shop 3</a></li>
-                                        <li><a href="index-4.html">Home Shop 4</a></li>
-                                    </ul>
+                                <li><a href="index.html">Inicio </a>
                                 </li>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="#">Features <i class="fa fa-angle-down"></i></a>
-                                    <ul class="megamenu-3-column">
-                                        <li><a href="#">Pages</a>
-                                            <ul>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
-                                                <li><a href="service.html">Services</a></li>
-                                                <li><a href="faq.html">Frequently Questins</a></li>
-                                                <li><a href="404.html">Error 404</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Blog</a>
-                                            <ul>
-                                                <li><a href="blog-without-sidebar.html">None Sidebar</a></li>
-                                                <li><a href="blog-left-sidebar.html">Sidebar Left</a></li>
-                                                <li><a href="blog-gallery-format.html">Gallery Format</a></li>
-                                                <li><a href="blog-audio-format.html">Audio Format</a></li>
-                                                <li><a href="blog-video-format.html">Video Format</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Shop</a>
-                                            <ul>
-                                                <li><a href="shop-full-width.html">Full Width</a></li>
-                                                <li><a href="shop-right-sidebar.html">Sidebar Right</a></li>
-                                                <li><a href="shop-list-view.html">List View</a></li>
-                                                <li><a href="single-product.html">Single Product</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <li><a href="#">Mercado</a></li>
+                                <li><a href="#">Noticias</a></li>
+                                <li><a href="#">Ayuda</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -201,15 +167,21 @@
                 </div>
                 <div class="col-lg-3">
                     <!-- hotline -->
+                     <!--
                     <div class="hotline clearfix pull-right d-none d-lg-block">
+                       
                         <div class="hotline-icon">
                             <i class="fa fa-phone"></i>
                         </div>
                         <div class="hotline-number color-white">
+                            
                             <span><strong>(+800) 123 456 329</strong></span>
                             <span>Support Any Time</span>
+                            
                         </div>
+                        
                     </div>
+                    -->
                 </div>
             </div>
         </div>

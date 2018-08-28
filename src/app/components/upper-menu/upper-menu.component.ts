@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { environment } from '../../../environments/environment'
 
 @Component({
   selector: 'app-upper-menu',
@@ -13,6 +14,8 @@ export class UpperMenuComponent implements OnInit {
 
   _currentUser:User = null;
   _returnUrl: string;
+  _pageTitle : string;
+  _devMode : Boolean;
 
   constructor(
     private userService: UserService,
@@ -23,7 +26,8 @@ export class UpperMenuComponent implements OnInit {
 
   ngOnInit() 
   {
-
+    this._pageTitle = environment.site_name;
+    this._devMode = isDevMode();
     this._returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     this.router.events.subscribe(
         (event)=>
