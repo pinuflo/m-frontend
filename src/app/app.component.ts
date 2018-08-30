@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
+
 import { Title }     from '@angular/platform-browser';
 import { filter, map, switchMap } from 'rxjs/operators';
 import { TitleService } from './services/title.service';
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit
   constructor(
     private userService: UserService,
     private titleService: TitleService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ){
 
   }
@@ -25,7 +26,6 @@ export class AppComponent implements OnInit
   ngOnInit() 
   {
 
-  
       this.titleService.routerObs.subscribe(
         (data) =>
         {
@@ -37,27 +37,6 @@ export class AppComponent implements OnInit
         }
       );
       
-
-
-      /**
-      .filter(event => event instanceof NavigationEnd)
-      .distinctUntilChanged()
-      .map(event =>  this.buildBreadCrumb(this.activatedRoute.root));
-      **/
-
-      /** 
-        this.title$ = this.router.events.subscribe(
-        (event)=>
-        {
-          if (event instanceof NavigationEnd)
-          {
-              console.log(this.route);
-              this._title = this.route.routeConfig.data[ 'title' ] ;
-          }
-        }
-    );
-    **/
-
   }
 
 }

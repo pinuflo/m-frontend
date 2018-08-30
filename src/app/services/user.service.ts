@@ -4,8 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { Config } from '../config/config';
 import { first } from 'rxjs/operators';
-import { Observable } from '../../../node_modules/rxjs';
-import { reject, resolve } from '../../../node_modules/@types/q';
 
 //Temporal hasta tener fichero configuración
 var _config:Config = { api_url: 'http://127.0.0.1:3000/api' };
